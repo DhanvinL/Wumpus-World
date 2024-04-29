@@ -1,8 +1,9 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
-public class WumpusPanel
+public class WumpusPanel extends JPanel
 {
     public static final int PLAYING = 0;
     public static final int DEAD = 1;
@@ -19,9 +20,8 @@ public class WumpusPanel
 
     public WumpusPanel()
     {
-
-
-
+        setSize(500,500);
+        setLayout(null);
     }
     public void reset()
     {
