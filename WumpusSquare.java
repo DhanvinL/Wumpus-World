@@ -56,5 +56,36 @@ public class WumpusSquare
     {
         return "";
     }
+    public void setGold(boolean a)
+    {
+        this.gold = a;
+    }
+    public void setLadder(boolean a)
+    {
+        this.ladder = a;
+    }
+    public void setPit(boolean a)
+    {
+        this.pit = a;
+    }
+    public void setBreeze(boolean a)
+    {
+        this.breeze = a;
+    }
+
+    public void setWumpus(boolean a)
+    {
+        this.wumpus = a;
+    }
+    public void setDeadWumpus(boolean a)
+    {
+        this.deadWumpus = a;
+    }
+    public void setStench(boolean a)
+    {
+        this.stench = a;
+    }
+
+
 
 }

@@ -23,7 +23,7 @@ public class WumpusMap
     {
         return ladderR;
     }
-    public WumpusSquare getSqare(int col, int row)
+    public WumpusSquare getSquare(int col, int row)
     {
         return grid[col][row];
     }

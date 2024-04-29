@@ -17,11 +17,47 @@ public class WumpusPlayer
 
     public WumpusPlayer()
     {
-
+        this.direction = NORTH;
+        this.gold = false;
+        this.arrow = true;
     }
 
-    //add get for each attribute
 
-    //add set for each attribute
+    public int getDirection() {
+        return direction;
+    }
+    public boolean isArrow(){
+        return arrow;
+    }
 
+    public boolean isGold() {
+        return gold;
+    }
+    public int getColPosition(){
+        return colPosition;
+    }
+
+    public int getRowPosition() {
+        return rowPosition;
+    }
+
+    public void setDirection(int direction) {
+        this.direction = direction;
+    }
+
+    public void setArrow(boolean arrow) {
+        this.arrow = arrow;
+    }
+
+    public void setGold(boolean gold) {
+        this.gold = gold;
+    }
+
+    public void setColPosition(int colPosition) {
+        this.colPosition = colPosition;
+    }
+
+    public void setRowPosition(int rowPosition) {
+        this.rowPosition = rowPosition;
+    }
 }
