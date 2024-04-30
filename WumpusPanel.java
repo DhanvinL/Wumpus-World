@@ -1,9 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
-public class WumpusPanel extends JPanel
+public class WumpusPanel extends JPanel implements KeyListener
 {
     public static final int PLAYING = 0;
     public static final int DEAD = 1;
@@ -25,6 +26,7 @@ public class WumpusPanel extends JPanel
     }
     public void reset()
     {
+        status = PLAYING;
 
     }
     public void paint(Graphics g)
@@ -45,7 +47,8 @@ public class WumpusPanel extends JPanel
     }
     public void addNotify()
     {
-
+        super.addNotify();
+        requestFocus();
     }
 
 
