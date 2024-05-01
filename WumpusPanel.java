@@ -27,6 +27,7 @@ public class WumpusPanel extends JPanel implements KeyListener
     public void reset()
     {
         status = PLAYING;
+        paint(getGraphics());
 
     }
     public void paint(Graphics g)

@@ -11,10 +11,21 @@ public class WumpusMap
     public WumpusMap(){
 
     }
-    public void createMap()
+    /*public void createMap()
     {
+        int randomRow = (int) (Math.random() * ((9)));
+        int randomCol = (int) (Math.random() * ((9)));
+        for(int i = 0; i < 9; i++){
+            System.out.println(randomRow);
+            System.out.println(randomCol + "\n");
 
-    }
+        }
+        for(int r = 0; r < grid.length; r++){
+            for(int c = 0; c < grid[0].length; c++){
+
+            }
+        }
+    }*/
     public int getLadderC()
     {
         return ladderC;
