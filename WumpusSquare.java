@@ -8,7 +8,7 @@ public class WumpusSquare
     private boolean deadWumpus;
     private boolean stench;
 
-    private boolean[][] visited;
+    private boolean visited;
 
 
     public WumpusSquare()
@@ -20,7 +20,7 @@ public class WumpusSquare
         this.wumpus = false;
         this.deadWumpus = false;
         this.stench = false;
-        this.visited = new boolean[10][10];
+        this.visited = false;
     }
 
     public boolean getGold()

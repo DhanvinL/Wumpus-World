@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class WumpusMap
 {
     public static final int NUM_ROWS = 10;
@@ -9,10 +12,38 @@ public class WumpusMap
     private int ladderC;
     private int ladderR;
     public WumpusMap(){
-
+        createMap();
     }
     public void createMap()
     {
+        //1 is pit
+        //2 is breeze
+        ArrayList<Integer> xUsed = new ArrayList<>();
+        ArrayList<Integer> yUsed = new ArrayList<>();
+        boolean go = true;
+        int randX = 0;
+        int randY = 0;
+        int count = 1;
+        while(count <11)
+        {
+            for(int y = 0;y<9;y++)
+            {
+                randX = 0 + (int)(Math.random() * ((9 - 0) + 1));
+                randY = 0 + (int)(Math.random() * ((9 - 0) + 1));
+               while(!xUsed.contains(randX) && !yUsed.contains(randY))
+               {
+                   randX = 0 + (int)(Math.random() * ((9 - 0) + 1));
+                   randY = 0 + (int)(Math.random() * ((9 - 0) + 1));
+               }
+
+
+                xUsed.add(randX);
+                yUsed.add(randY);
+                grid[randX][randY] = new WumpusSquare();
+                grid[randX][randY]
+            }
+            count++;
+        }
 
     }
     public int getLadderC()
