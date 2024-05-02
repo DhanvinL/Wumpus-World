@@ -11,7 +11,7 @@ public class WumpusMap
     public WumpusMap(){
 
     }
-    /*public void createMap()
+    public void createMap()
     {
         int randomRow = (int) (Math.random() * ((9)));
         int randomCol = (int) (Math.random() * ((9)));
@@ -25,7 +25,7 @@ public class WumpusMap
 
             }
         }
-    }*/
+    }
     public int getLadderC()
     {
         return ladderC;
