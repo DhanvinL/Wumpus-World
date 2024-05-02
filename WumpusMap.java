@@ -20,30 +20,36 @@ public class WumpusMap
         //2 is breeze
         ArrayList<Integer> xUsed = new ArrayList<>();
         ArrayList<Integer> yUsed = new ArrayList<>();
-        boolean go = true;
         int randX = 0;
         int randY = 0;
-        int count = 1;
-        while(count <11)
+        randX = 0 + (int)(Math.random() * ((9 - 0) + 1));
+        randY = 0 + (int)(Math.random() * ((9 - 0) + 1));
+        grid[randX][randY] = new WumpusSquare();
+        grid[randX][randY].setPit(true);
+        xUsed.add(randX);
+        yUsed.add(randY);
+        //setting the pits
+        for(int y = 0;y<8;y++)
         {
-            for(int y = 0;y<9;y++)
+            randX = 0 + (int)(Math.random() * ((9 - 0) + 1));
+            randY = 0 + (int)(Math.random() * ((9 - 0) + 1));
+            while(!xUsed.contains(randX) && !yUsed.contains(randY))
             {
                 randX = 0 + (int)(Math.random() * ((9 - 0) + 1));
                 randY = 0 + (int)(Math.random() * ((9 - 0) + 1));
-               while(!xUsed.contains(randX) && !yUsed.contains(randY))
-               {
-                   randX = 0 + (int)(Math.random() * ((9 - 0) + 1));
-                   randY = 0 + (int)(Math.random() * ((9 - 0) + 1));
-               }
-
-
-                xUsed.add(randX);
-                yUsed.add(randY);
-                grid[randX][randY] = new WumpusSquare();
-                grid[randX][randY]
             }
-            count++;
+            xUsed.add(randX);
+            yUsed.add(randY);
+            grid[randX][randY] = new WumpusSquare();
+            grid[randX][randY].setPit(true);
         }
+
+        //adding breezes
+        for(int i =0;i< grid.length;i++)
+        {
+            for(int k = 0;k)
+        }
+
 
     }
     public int getLadderC()
