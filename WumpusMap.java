@@ -37,7 +37,7 @@ public class WumpusMap
         xUsed.add(randX);
         yUsed.add(randY);
         //setting the pits
-        for(int y = 0;y<8;y++)
+        for(int y = 0;y<9;y++)
         {
             randX = 0 + (int)(Math.random() * ((9 - 0) + 1));
             randY = 0 + (int)(Math.random() * ((9 - 0) + 1));
@@ -114,10 +114,34 @@ public class WumpusMap
     {
         return grid[col][row];
     }
-    public String toString()
-    {
-        return "";
-    }
+    public String toString() {
+        String a = "";
+        for (int row = 0; row < grid.length; row++) {
+            for (int col = 0; col < grid[row].length; col++) {
+                if(grid[row][col].getLadder())
+                {
+                    a += "L" ;
+                }
+                else if (grid[row][col].getGold())
+                {
+                    a += "G" ;
 
+                }
+                else if(grid[row][col].getPit())
+                {
+                    a += "P";
+
+                }
+                else{
+                    a += "*";
+                }
+
+
+
+            }
+            a += "\r\n";
+        }
+        return a;
+    }
 
 }
