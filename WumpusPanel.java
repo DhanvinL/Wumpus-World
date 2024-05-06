@@ -23,12 +23,14 @@ public class WumpusPanel extends JPanel implements KeyListener
 
     private File file;
 
+    JTextArea inventoryTitle = new JTextArea("Inventory");
+
     public WumpusPanel()
     {
 
         map = new WumpusMap();
         player = new WumpusPlayer();
-        setSize(500,500);
+        setSize(500,900);
         setLayout(null);
         /*try{
             File file = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\black.GIF");
@@ -40,6 +42,9 @@ public class WumpusPanel extends JPanel implements KeyListener
         }
 
         */
+        inventoryTitle.setBounds(10,550,250,50);
+        inventoryTitle.setFont(new Font("TIMES NEW ROMAN", Font.BOLD, 20));
+        add(inventoryTitle);
         reset();
 
 
@@ -136,6 +141,12 @@ public class WumpusPanel extends JPanel implements KeyListener
                 }
             }
         }
+
+        //inventory
+        //g.drawImage(buffer, 0, 570, this);
+
+
+        //floor
         int playerRow = (map.getLadderC() + 1) * 50;
         int columnRow = (map.getLadderR() + 1) * 50;
         try{
@@ -148,7 +159,7 @@ public class WumpusPanel extends JPanel implements KeyListener
         }
         g.drawImage(buffer, playerRow, columnRow, this);
 
-
+        //ladder
         try{
             File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\ladder.gif");
             buffer = ImageIO.read(file1);
@@ -159,7 +170,7 @@ public class WumpusPanel extends JPanel implements KeyListener
         }
         g.drawImage(buffer, playerRow, columnRow, this);
 
-
+        //playerDown
         try{
             File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\playerDown.png");
             buffer = ImageIO.read(file1);
@@ -169,6 +180,12 @@ public class WumpusPanel extends JPanel implements KeyListener
 
         }
         g.drawImage(buffer, playerRow, columnRow, this);
+
+        //inventory
+        g.fillRect(10,600,250,100);
+
+
+
     }
     public void keyPressed(KeyEvent e)
     {
