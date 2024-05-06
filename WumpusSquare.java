@@ -86,7 +86,9 @@ public class WumpusSquare
     {
         this.stench = a;
     }
-
+    public boolean[][] getVisited(){
+        return visited;
+    }
 
 
 }

@@ -8,13 +8,9 @@ public class WumpusFrame extends JFrame
     public WumpusFrame()
     {
         setVisible(true);
-        setSize(800,800);
+        setSize(575,700);
         setLayout(null);
         add(wumpusPanel);
-        paint(new Graphics());
-    }
-    public void paint(Graphics g){
-        g.setColor(Color.BLACK);
-        g.fillRect(0,500,800,300);
+
     }
 }
