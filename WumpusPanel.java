@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.security.Key;
 
 public class WumpusPanel extends JPanel implements KeyListener
 {
@@ -26,11 +27,12 @@ public class WumpusPanel extends JPanel implements KeyListener
 
     public WumpusPanel()
     {
-
         map = new WumpusMap();
         player = new WumpusPlayer();
         setSize(500,500);
         setLayout(null);
+        addKeyListener(this);
+
     }
     public void reset()
     {
@@ -168,11 +170,23 @@ public class WumpusPanel extends JPanel implements KeyListener
     }
     public void keyTyped(KeyEvent e)
     {
-        if(e.getKeyCode() == KeyEvent.VK_W){
+        System.out.println("GETTING HERE");
+        System.out.println(e.getKeyChar());
+        if(e.getKeyCode() == 'W'){
+            player.setDirection(0);
             System.out.println("W");
         }
-        if(e.getKeyCode() == KeyEvent.VK_A){
+        if(e.getKeyChar() == 'A'){
+            player.setDirection(3);
             System.out.println("A");
+        }
+        if(e.getKeyChar() == 'S'){
+            player.setDirection(2);
+            System.out.println("S");
+        }
+        if(e.getKeyChar() == 'D'){
+            player.setDirection(1);
+            System.out.println("D");
         }
     }
     public void addNotify()
