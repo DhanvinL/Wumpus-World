@@ -22,13 +22,16 @@ public class WumpusPanel extends JPanel implements KeyListener
     private BufferedImage buffer;
 
     private File file;
+    JTextField messages = new JTextField("");
 
-    JTextArea inventoryTitle = new JTextArea("Inventory");
+
+
 
     public WumpusPanel()
     {
 
         map = new WumpusMap();
+        addKeyListener(this);
         player = new WumpusPlayer();
         setSize(500,900);
         setLayout(null);
@@ -42,11 +45,23 @@ public class WumpusPanel extends JPanel implements KeyListener
         }
 
         */
-        inventoryTitle.setBounds(10,550,250,50);
-        inventoryTitle.setFont(new Font("TIMES NEW ROMAN", Font.BOLD, 20));
+        JTextField inventoryTitle = new JTextField (" Inventory:");
+        inventoryTitle.setBounds(10,600,250,20);
+        inventoryTitle.setFont(new Font("TIMES NEW ROMAN", Font.BOLD, 19));
         add(inventoryTitle);
-        reset();
 
+        JTextField messageBox = new JTextField (" Messages:");
+        messageBox.setBounds(280,600,250,20);
+        messageBox.setFont(new Font("TIMES NEW ROMAN", Font.BOLD, 17));
+        add(messageBox);
+
+        messages.setBounds(280,620,250,130);
+        messages.setFont(new Font("TIMES NEW ROMAN", Font.BOLD, 17));
+        messages.setBackground(Color.black);
+        messages.setForeground(Color.CYAN);
+        add(messages);
+
+        reset();
 
     }
     public void reset()
@@ -182,7 +197,27 @@ public class WumpusPanel extends JPanel implements KeyListener
         g.drawImage(buffer, playerRow, columnRow, this);
 
         //inventory
-        g.fillRect(10,600,250,100);
+        g.fillRect(10,600,250,150);
+
+        //message box
+        g.fillRect(280,600,270,150);
+
+        //adding default arrow
+        try{
+            File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\arrow.gif");
+            buffer = ImageIO.read(file1);
+        }
+        catch(IOException e){
+            e.printStackTrace();
+
+        }
+        g.drawImage(buffer, 10, 630, this);
+
+        //setting up message box
+        messages.setText("You bump into a ladder");
+
+
+
 
 
 
@@ -197,7 +232,24 @@ public class WumpusPanel extends JPanel implements KeyListener
     }
     public void keyTyped(KeyEvent e)
     {
-
+        System.out.println("GETTING HERE");
+        //System.out.println(e.getKeyChar());
+        if(e.getKeyChar() == 'w'){
+            player.setDirection(0);
+            System.out.println("W");
+        }
+        if(e.getKeyChar() == 'a'){
+            player.setDirection(1);
+            System.out.println("A");
+        }
+        if(e.getKeyChar() == 's'){
+            player.setDirection(2);
+            System.out.println("S");
+        }
+        if(e.getKeyChar() == 'd'){
+            player.setDirection(3);
+            System.out.println("D");
+        }
     }
     public void addNotify()
     {
