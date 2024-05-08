@@ -7,6 +7,7 @@ public class WumpusPlayer
     public static final int WEST = 3;
 
     private int direction;
+    private int moveCount;
 
     private boolean arrow;
 
@@ -42,6 +43,10 @@ public class WumpusPlayer
     public int getRowPosition() {
         return rowPosition;
     }
+
+    public int getMoveCount(){
+        return moveCount;
+    }
     //add set for each attribute
 
     public void setDirection(int direction) {
@@ -62,5 +67,8 @@ public class WumpusPlayer
 
     public void setRowPosition(int rowPosition) {
         this.rowPosition = rowPosition;
+    }
+    public void setMoveCount(int moveCount){
+        this.moveCount = moveCount;
     }
 }
