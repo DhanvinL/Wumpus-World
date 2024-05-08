@@ -110,10 +110,11 @@ public class WumpusMap
     {
         return ladderR;
     }
-    public WumpusSquare getSquare(int col, int row)
+    public WumpusSquare getSquare(int row, int col)
     {
-        return grid[col][row];
+        return grid[row][col];
     }
+
     public String toString() {
         String a = "";
         for (int row = 0; row < grid.length; row++) {

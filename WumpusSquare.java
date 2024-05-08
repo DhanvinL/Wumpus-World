@@ -73,6 +73,15 @@ public class WumpusSquare
         this.breeze = a;
     }
 
+    public boolean getVisited()
+    {
+        return visited;
+    }
+    public void setVisited(boolean a)
+    {
+        this.visited = a;
+    }
+
     public void setWumpus(boolean a)
     {
         this.wumpus = a;

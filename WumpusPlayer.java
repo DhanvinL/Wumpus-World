@@ -13,6 +13,14 @@ public class WumpusPlayer
     private int colPosition;
     private int rowPosition;
 
+    private int moveCount;
+    public int getMoveCount(){
+        return moveCount;
+    }
+    public void setMoveCount(int moveCount){
+    this.moveCount = moveCount;
+}
+
 
 
     public WumpusPlayer()
