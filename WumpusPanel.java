@@ -26,14 +26,15 @@ public class WumpusPanel extends JPanel implements KeyListener {
 
     private File file;
     JTextField messages = new JTextField("");
-
+    int playerRow = 0;
+    int columnRow = 0;
 
     public WumpusPanel() {
 
         map = new WumpusMap();
         addKeyListener(this);
         player = new WumpusPlayer();
-        setSize(500, 900);
+        setSize(675, 900);
         setLayout(null);
         /*try{
             File file = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\black.GIF");
@@ -75,94 +76,101 @@ public class WumpusPanel extends JPanel implements KeyListener {
         //System.out.println(player.getRowPosition());
 
         //super.paint(g);
-        int playerRow1= map.getLadderC() ;
-        int columnRow1 = map.getLadderR() ;
+        //player.getColPosition() is row
+        // player.getRowPosition() is col
 
-        int playerRow = (map.getLadderC() + 1) * 50;
-        int columnRow = (map.getLadderR() + 1) * 50;
-        if(time == 0)
-        {
-            map.getSquare(playerRow1, columnRow1).setVisited(true);
-            time++;
-        }
-        File file = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\black.GIF");
+        System.out.println("The Ladder is on row: " + player.getColPosition() + ", The col is on " + player.getRowPosition());
+
+
+
+
+        File file = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\black.GIF");
         try {
             buffer = ImageIO.read(file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        if (buffer != null) {
-            int a = 0;
-            for (int i = 1; i <= 100; i++) {
-                if (i >= 1 && i <= 10) {
-                    if (i == 1) {
-                        a = 50;
+        if(time == 0) {
+            player.setRowPosition(map.getLadderC());
+            player.setColPosition(map.getLadderR());
+            playerRow = (map.getLadderC() + 1) * 50;
+            columnRow = (map.getLadderR() + 1) * 50;
+            map.getSquare(player.getRowPosition(), player.getColPosition()).setVisited(true);
+            time++;
+
+            if (buffer != null) {
+                int a = 0;
+                for (int i = 1; i <= 100; i++) {
+                    if (i >= 1 && i <= 10) {
+                        if (i == 1) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 50, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 50, this);
-                    a += 50;
-                }
-                if (i >= 11 && i <= 20) {
-                    if (i == 11) {
-                        a = 50;
+                    if (i >= 11 && i <= 20) {
+                        if (i == 11) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 100, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 100, this);
-                    a += 50;
-                }
-                if (i >= 21 && i <= 30) {
-                    if (i == 21) {
-                        a = 50;
+                    if (i >= 21 && i <= 30) {
+                        if (i == 21) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 150, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 150, this);
-                    a += 50;
-                }
-                if (i >= 31 && i <= 40) {
-                    if (i == 31) {
-                        a = 50;
+                    if (i >= 31 && i <= 40) {
+                        if (i == 31) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 200, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 200, this);
-                    a += 50;
-                }
-                if (i >= 41 && i <= 50) {
-                    if (i == 41) {
-                        a = 50;
+                    if (i >= 41 && i <= 50) {
+                        if (i == 41) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 250, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 250, this);
-                    a += 50;
-                }
-                if (i >= 51 && i <= 60) {
-                    if (i == 51) {
-                        a = 50;
+                    if (i >= 51 && i <= 60) {
+                        if (i == 51) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 300, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 300, this);
-                    a += 50;
-                }
-                if (i >= 61 && i <= 70) {
-                    if (i == 61) {
-                        a = 50;
+                    if (i >= 61 && i <= 70) {
+                        if (i == 61) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 350, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 350, this);
-                    a += 50;
-                }
-                if (i >= 71 && i <= 80) {
-                    if (i == 71) {
-                        a = 50;
+                    if (i >= 71 && i <= 80) {
+                        if (i == 71) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 400, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 400, this);
-                    a += 50;
-                }
-                if (i >= 81 && i <= 90) {
-                    if (i == 81) {
-                        a = 50;
+                    if (i >= 81 && i <= 90) {
+                        if (i == 81) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 450, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 450, this);
-                    a += 50;
-                }
-                if (i >= 91 && i <= 100) {
-                    if (i == 91) {
-                        a = 50;
+                    if (i >= 91 && i <= 100) {
+                        if (i == 91) {
+                            a = 50;
+                        }
+                        g.drawImage(buffer, a, 500, this);
+                        a += 50;
                     }
-                    g.drawImage(buffer, a, 500, this);
-                    a += 50;
                 }
             }
         }
@@ -170,13 +178,14 @@ public class WumpusPanel extends JPanel implements KeyListener {
         int a = 1;
         for(int x =0;x<10;x++)
         {
-            a *= 50;
+            a += 50;
             for(int y =0;y<10;y++)
             {
+
                 if(map.getSquare(x, y).getVisited())
                 {
                     try {
-                        File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\Floor.gif");
+                        File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\Floor.gif");
                         buffer = ImageIO.read(file1);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -184,9 +193,29 @@ public class WumpusPanel extends JPanel implements KeyListener {
                     }
                     g.drawImage(buffer, a, (y+1)*50, this);
                 }
+                if(map.getSquare(x,y).getWumpus() && map.getSquare(x, y).getVisited())
+                {
+                    File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\wumpus.gif");
+                    try {
+                        buffer = ImageIO.read(file1);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    g.drawImage(buffer, a, (y+1)*50, this);
+                }
+                if(map.getSquare(x,y).getStench() && map.getSquare(x, y).getVisited())
+                {
+                    File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\stench.gif");
+                    try {
+                        buffer = ImageIO.read(file1);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    g.drawImage(buffer, a, (y+1)*50, this);
+                }
                 if(map.getSquare(x, y).getPit() && map.getSquare(x, y).getVisited())
                 {
-                    File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\pit.gif");
+                    File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\pit.gif");
                     try {
                         buffer = ImageIO.read(file1);
                     } catch (IOException e) {
@@ -196,7 +225,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
                 }
                 if(map.getSquare(x, y).getBreeze() && map.getSquare(x, y).getVisited())
                 {
-                    File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\breeze.gif");
+                    File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\breeze.gif");
                     try {
                         buffer = ImageIO.read(file1);
                     } catch (IOException e) {
@@ -206,7 +235,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
                 }
                 if(map.getSquare(x, y).getDeadWumpus() && map.getSquare(x, y).getVisited())
                 {
-                    File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\deadwumpus.GIF");
+                    File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\deadwumpus.GIF");
                     try {
                         buffer = ImageIO.read(file1);
                     } catch (IOException e) {
@@ -214,9 +243,9 @@ public class WumpusPanel extends JPanel implements KeyListener {
                     }
                     g.drawImage(buffer, a, (y+1)*50, this);
                 }
-                if(map.getSquare(x, y).getPit() && map.getSquare(x, y).getVisited())
+                if(map.getSquare(x, y).getGold() && map.getSquare(x, y).getVisited())
                 {
-                    File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\gold.gif");
+                    File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\gold.gif");
                     try {
                         buffer = ImageIO.read(file1);
                     } catch (IOException e) {
@@ -226,7 +255,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
                 }
                 if(map.getSquare(x, y).getLadder() && map.getSquare(x, y).getVisited())
                 {
-                    File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\ladder.gif");
+                    File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\ladder.gif");
                     try {
                         buffer = ImageIO.read(file1);
                     } catch (IOException e) {
@@ -273,7 +302,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
 
 
             try {
-                File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\playerUp.png");
+                File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\playerUp.png");
                 buffer = ImageIO.read(file1);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -285,7 +314,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
 
 
             try {
-                File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\playerDown.png");
+                File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\playerDown.png");
                 buffer = ImageIO.read(file1);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -297,7 +326,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
 
 
             try {
-                File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\playerLeft.png");
+                File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\playerLeft.png");
                 buffer = ImageIO.read(file1);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -309,7 +338,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
 
 
             try {
-                File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\playerRight.png");
+                File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\playerRight.png");
                 buffer = ImageIO.read(file1);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -327,7 +356,7 @@ public class WumpusPanel extends JPanel implements KeyListener {
 
         //adding default arrow
         try {
-            File file1 = new File("C:\\Users\\K1328854\\Downloads\\Images-20240425T183203Z-001\\Images\\arrow.gif");
+            File file1 = new File("C:\\Users\\Dhanb\\Downloads\\Images-20240425T183203Z-001\\Images\\arrow.gif");
             buffer = ImageIO.read(file1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -352,24 +381,64 @@ public class WumpusPanel extends JPanel implements KeyListener {
     public void keyTyped(KeyEvent e) {
         System.out.println("GETTING HERE");
         //System.out.println(e.getKeyChar());
-        if (e.getKeyChar() == 'w') {
-            player.setDirection(0);
-            player.setRowPosition(player.getRowPosition() - 1);
+        if (e.getKeyChar() == 'a') {
+            if(map.getSquare(player.getRowPosition()-1,player.getColPosition()) != null) {
+                player.setDirection(0);
+                System.out.println("The player Row position is: " + player.getRowPosition());
+                player.setRowPosition(player.getRowPosition() - 1);
+
+                player.setDirection(WumpusPlayer.WEST);
+                playerRow = (player.getRowPosition() + 1) * 50;
+                columnRow = (player.getColPosition() + 1) * 50;
+                map.getSquare(player.getRowPosition(), player.getColPosition()).setVisited(true);
+                repaint();
+            }
+
             //System.out.println("W");
         }
-        if (e.getKeyChar() == 'a') {
-            player.setDirection(1);
-            player.setRowPosition(player.getColPosition() - 1);
+        if (e.getKeyChar() == 'w') {
+            if(map.getSquare(player.getRowPosition(),player.getColPosition()-1) != null) {
+                player.setDirection(0);
+                System.out.println("The player Row position is: " + player.getRowPosition());
+                player.setColPosition(player.getColPosition() - 1);
+
+                player.setDirection(WumpusPlayer.NORTH);
+                playerRow = (player.getRowPosition() + 1) * 50;
+                columnRow = (player.getColPosition() + 1) * 50;
+                map.getSquare(player.getRowPosition(), player.getColPosition()).setVisited(true);
+                repaint();
+            }
+
             //System.out.println("A");
         }
         if (e.getKeyChar() == 's') {
-            player.setDirection(2);
-            player.setRowPosition(player.getRowPosition() + 1);
+            if(map.getSquare(player.getRowPosition(),player.getColPosition()+1) != null) {
+                player.setDirection(0);
+                System.out.println("The player Row position is: " + player.getRowPosition());
+                player.setColPosition(player.getColPosition() + 1);
+
+                player.setDirection(WumpusPlayer.NORTH);
+                playerRow = (player.getRowPosition() + 1) * 50;
+                columnRow = (player.getColPosition() + 1) * 50;
+                map.getSquare(player.getRowPosition(), player.getColPosition()).setVisited(true);
+                repaint();
+            }
+
             //System.out.println("S");
         }
         if (e.getKeyChar() == 'd') {
-            player.setDirection(3);
-            player.setRowPosition(player.getColPosition() + 1);
+            if(map.getSquare(player.getRowPosition()+1,player.getColPosition()) != null) {
+                player.setDirection(0);
+                System.out.println("The player Row position is: " + player.getRowPosition());
+                player.setRowPosition(player.getRowPosition() + 1);
+
+                player.setDirection(WumpusPlayer.WEST);
+                playerRow = (player.getRowPosition() + 1) * 50;
+                columnRow = (player.getColPosition() + 1) * 50;
+                map.getSquare(player.getRowPosition(), player.getColPosition()).setVisited(true);
+                repaint();
+            }
+
             //System.out.println("D");
         }
         if (e.getKeyChar() == 'n') {

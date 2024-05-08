@@ -8,7 +8,7 @@ public class WumpusFrame extends JFrame
     public WumpusFrame()
     {
         setVisible(true);
-        setSize(575,800);
+        setSize(675,800);
         setLayout(null);
         add(wumpusPanel);
 
