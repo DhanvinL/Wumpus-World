@@ -492,33 +492,35 @@ public class WumpusPanel extends JPanel implements KeyListener {
 
                 }
             }
+            if(hit)
+            {
+                messages.setText("You hear a scream.");
+                hit = false;
 
-            if(player.getRowPosition() == map.getLadderC() && player.getColPosition() == map.getLadderR())
-            {
-                messages.setText("You bump into a ladder.");
             }
-            if(map.getSquare(player.getRowPosition(), player.getColPosition()).getBreeze())
-            {
-                messages.setText("You feel a breeze.");
-            }
-            if(map.getSquare(player.getRowPosition(), player.getColPosition()).getStench())
-            {
-                messages.setText("You smell a stench.");
-            }
-            if(map.getSquare(player.getRowPosition(), player.getColPosition()).getGold())
-            {
-                messages.setText("You see a glimmer.");
-            }
-            if(map.getSquare(player.getRowPosition(), player.getColPosition()).getPit())
-            {
-                messages.setText("You fell down a pit to your death.");
-            }
-            if(map.getSquare(player.getRowPosition(), player.getColPosition()).getWumpus())
-            {
+            else {
 
-                messages.setText("You are eaten by the Wumpus.");
+                if (player.getRowPosition() == map.getLadderC() && player.getColPosition() == map.getLadderR()) {
+                    messages.setText("You bump into a ladder.");
+                }
+                if (map.getSquare(player.getRowPosition(), player.getColPosition()).getBreeze()) {
+                    messages.setText("You feel a breeze.");
+                }
+                if (map.getSquare(player.getRowPosition(), player.getColPosition()).getStench()) {
+                    messages.setText("You smell a stench.");
+                }
+                if (map.getSquare(player.getRowPosition(), player.getColPosition()).getGold()) {
+                    messages.setText("You see a glimmer.");
+                }
+                if (map.getSquare(player.getRowPosition(), player.getColPosition()).getPit()) {
+                    messages.setText("You fell down a pit to your death.");
+                }
+                if (map.getSquare(player.getRowPosition(), player.getColPosition()).getWumpus()) {
+
+                    messages.setText("You are eaten by the Wumpus.");
+                }
+                System.out.println(map.toString());
             }
-            System.out.println(map.toString());
 
             //inventory
             //g.drawImage(buffer, 0, 570, this);
@@ -766,7 +768,6 @@ public class WumpusPanel extends JPanel implements KeyListener {
         {
             player.setDirection(WumpusPlayer.NORTH);
             inventoryItems.remove("arrow");
-            boolean hit = false;
 
             for(int x =player.getColPosition();x>=0;x--)
             {
@@ -787,7 +788,6 @@ public class WumpusPanel extends JPanel implements KeyListener {
         {
             player.setDirection(WumpusPlayer.WEST);
             inventoryItems.remove("arrow");
-            boolean hit = false;
 
             for(int x =player.getRowPosition();x>=0;x--)
             {
@@ -809,7 +809,6 @@ public class WumpusPanel extends JPanel implements KeyListener {
         {
             player.setDirection(WumpusPlayer.SOUTH);
             inventoryItems.remove("arrow");
-            boolean hit = false;
 
             for(int x =player.getColPosition();x<10;x++)
             {
@@ -830,7 +829,6 @@ public class WumpusPanel extends JPanel implements KeyListener {
         if(e.getKeyChar() == 'l') {
             player.setDirection(WumpusPlayer.WEST);
             inventoryItems.remove("arrow");
-            boolean hit = false;
 
             for (int x = player.getRowPosition(); x < 10; x++) {
 
